@@ -1,0 +1,13 @@
+# Build and Release Folders
+
+node_modules
+
+.npmrc
+
+.vitepress/dist
+
+.vitepress/cache
+
+.vitepress/cache/deps
+
+.vscode
