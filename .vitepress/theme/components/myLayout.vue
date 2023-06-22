@@ -1,7 +1,18 @@
 <template>
   <Layout></Layout>
   <footer id="foo">
-    Copyright © 2019-2023 | the model from
+    <div class="busuanzi">
+      <span id="busuanzi_container_site_pv" style="display: none">
+        本站总访问量
+        <span ref="sitepv" id="busuanzi_value_site_pv"></span>次
+        <span class="post-meta-divider">|</span>
+      </span>
+      <span id="busuanzi_container_site_uv" style="display: none">
+        本站访客数
+        <span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </div>
+
     <a href="https://process1024.github.io/vitepress/"> vitepress </a>
     and
     <a href="https://github.com/clark-cui/vitepress-blog-zaun">
@@ -12,7 +23,13 @@
 </template>
 <script lang="ts" setup>
 import DefaultTheme from "vitepress/theme";
-const { Layout } = DefaultTheme
+import bsz from "busuanzi.pure.js";
+import { onMounted, ref } from "vue";
+const { Layout } = DefaultTheme;
+console.log(bsz);
+
+bsz
+
 </script>
 <style lang="less" scoped>
 #foo {
@@ -22,8 +39,8 @@ const { Layout } = DefaultTheme
   text-align: center;
   cursor: help;
   font: 12px/150% Arial, Verdana, SimSun;
-  a{
-    color:#ff7007;
+  a {
+    color: #ff7007;
   }
 }
 </style>

@@ -10,9 +10,10 @@ async function config() {
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
       nav: [
-        { text: "🐈mine", link: "/" },
-        { text: "🗃️tag", link: "/tag" },
-        { text: "📖archives", link: "/archives" },
+        { text: "🐈stillwarter", link: "/" },
+        { text: "🗃️标签", link: "/tag" },
+        { text: "📖文章", link: "/archives" },
+        {text:"📔友人帐",link:"/teancherandfrends"}
       ],
 
       posts: await getPosts(),

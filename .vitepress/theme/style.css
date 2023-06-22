@@ -25,6 +25,18 @@
   
 }
 
+:root {
+  --bg: #000000;
+  --clr-4: #a3dff1;
+  --clr-3: #16f979;
+  --clr-2: #ffd36c;
+  --clr-1: #e22abd;
+
+  --blur: 1rem;
+  --fs: clamp(3rem, 8vw, 7rem);
+  --ls: clamp(-1.75px, -0.25vw, -3.5px);
+}
+
 /**
 * font
 */
@@ -182,3 +194,25 @@ textarea {
   float: left;
 }
 
+/* 额外字体 */
+/* @font-face {
+  font-family: 'xiachan';
+  src: url("/font/夏蝉丸ゴシック.ttf");
+} */
+@font-face {
+  font-family: 'catbite';
+  src: url("/font/猫啃什锦黑.ttf");
+}
+@font-face {
+  font-family: 'hancan';
+  src: url("/font/寒蝉点阵体.ttf");
+}
+@font-face {
+  font-family: 'liuhuan';
+  src: url("/font/刘欢卡通手书1.07.ttf");
+}
+/* @font-face {
+  font-family: 'youboku';
+  src: url("/font/YujiBoku-Regular.ttf");
+ 
+} */

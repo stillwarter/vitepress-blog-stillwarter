@@ -1,5 +1,16 @@
 {
+  "name": "stillwarter-vitepress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "stillwarter",
+  "license": "MIT",
+  "type": "module",
   "dependencies": {
+    "@orillusion/core": "^0.6.2",
+    "@tensorflow/tfjs": "3.1.0",
+    "@tensorflow/tfjs-vis": "1.0.0",
+    "axios": "^1.4.0",
+    "busuanzi.pure.js": "^1.0.3",
     "dat.gui": "^0.7.9",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",

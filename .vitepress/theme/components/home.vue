@@ -20,7 +20,7 @@ import normalMap1 from "/img/home/Water_2_M_Normal.jpg";
 
 onMounted(() => {
   const scene = new three.Scene();
-  
+
   const camera = new three.PerspectiveCamera(
     90,
     window.innerWidth / window.innerHeight,
@@ -70,20 +70,31 @@ onMounted(() => {
   const sky = new three.Mesh(skyGeometry, skyMaterial);
   scene.add(sky);
 
-  const video = document.createElement("video");
-  video.src = "/img/home/sky.mp4";
-  video.loop = true;
+  // if (isMobile()) {
+  //   console.log("mobile");
+  // } else {
+  //   const video = document.createElement("video");
+  //   video.src = "/img/home/sky.mp4";
+  //   video.loop = true;
 
-  window.addEventListener("click", (e) => {
-    // 当鼠标移动的时候播放视频
-    //   判断视频是否处于播放状态
-    if (video.paused) {
-      video.play();
-      let texture = new three.VideoTexture(video);
-      skyMaterial.map = texture;
-      skyMaterial.map.needsUpdate = true;
-    }
-  });
+  //   window.addEventListener("click", (e) => {
+  //     // 当鼠标移动的时候播放视频
+  //     //   判断视频是否处于播放状态
+  //     if (video.paused) {
+  //       video.play();
+  //       let texture = new three.VideoTexture(video);
+  //       skyMaterial.map = texture;
+  //       skyMaterial.map.needsUpdate = true;
+  //     }
+  //   });
+  // }
+
+  function isMobile() {
+    let flag = navigator.userAgent.match(
+      /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+    );
+    return flag;
+  }
 
   // 创建水面
   const waterGeometry = new three.CircleBufferGeometry(800, 64);

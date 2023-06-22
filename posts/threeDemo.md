@@ -1,6 +1,7 @@
 ---
 title: three.js Demo
 outline: deep
+date: 2023-04-02
 tags:
   - three.js
   - Stu
@@ -9,11 +10,13 @@ tags:
 
 # 一个简单 threejs Demo
 
+很早之前就想用用threejs了，趁着重构blog项目的空余就看能不能写一个简单的threejs的样例。总结下来的思路就是：创建一个3D场景，布置好投影仪，设置好渲染器，然后构建你的场景，最后将渲染出的画面或动画添加到对应的dom节点上。
+
 ## 示例
 
 <threeDemo />
 
-<a style="cursor: pointer;" href="">sir，this way</a>
+源码：<a style="cursor: pointer;" href="https://github.com/stillwarter/vitepress-blog-stillwarter/blob/master/.vitepress/theme/mycomponents/Demo/threeDemo.vue">sir，this way</a>
 
 ## 实现
 
@@ -222,3 +225,6 @@ threeshow.appendChild(renderer.domElement);
 ## 其他
 
 除此之外，其实还有很多属性方法没有说到。three 是一个庞大的三维框架，想要真正用好还有很多功课需要做，或许在真正深入之前还需要了解图形化知识，webgl 和浏览器渲染模式等内容。
+
+实际上代码的实现大部分来自<a style="cursor: pointer;" href="https://www.bilibili.com/video/BV1Gg411X7FY/?spm_id_from=333.337.search-card.all.click">b站的视频教程</a>，我做的不过是将其搬到这里，不过具体的实现有差异，总而言之自己手敲一遍还是很有意义的，最后感谢这些传道者，然我不至于在求知的路上摸黑前行。
+

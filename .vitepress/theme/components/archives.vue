@@ -4,8 +4,10 @@
       <div v-for="(item, key) in yearDate" class="arc">
         <div class="yeartitle">{{ key.slice(0, 4) }}</div>
         <div v-for="(item, key) in yearDate[key]" class="archievsmain">
-          <div>{{ item.frontMatter.title }}</div>
-          <div>{{ item.frontMatter.date }}</div>
+          <a :href="item.regularPath">
+            <div>{{ item.frontMatter.title }}</div>
+            <div>{{ item.frontMatter.date }}</div>
+          </a>
         </div>
       </div>
     </div>
@@ -19,23 +21,26 @@ const { theme } = useData();
 const postsData = theme.value.posts;
 const yearDate: any = {};
 const yearInfo: any = {};
-console.log(postsData);
+
 
 for (let item of postsData) {
-  
-  const date = item.frontMatter.date;
-  const layout=item.frontMatter.layout
+  const date = item.frontMatter.date.slice(0,4);
+  const layout = item.frontMatter.layout;
 
+  console.log(date);
   // 隐藏layout为false的文章（但可以通过url访问）
-  if (layout===false) {
+  if (layout === false) {
     continue;
   }
-  
+
   if (!yearDate[date]) {
     yearDate[date] = [];
   }
+  
   yearDate[date].push(item);
 }
+
+console.log(yearDate,yearInfo);
 </script>
 
 <style lang="less" scoped>
@@ -64,13 +69,20 @@ for (let item of postsData) {
       align-content: space-between;
       color: #74787a;
       transition: all 0.25s linear;
-      div {
-        width: 1000px;
+      a {
+        width: 600px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        color: #74787a;
+        transition: all 0.5s linear;
         font-family: FangSong, Helvetica, Tahoma, Arial;
         cursor: pointer;
       }
+      a:hover {
+        color: #21373d;
+      }
+
+      
     }
     .archievsmain:hover {
       color: #21373d;
@@ -89,8 +101,11 @@ for (let item of postsData) {
     .archievs {
       .archievsmain {
         width: 30rem;
+        a {
+          width: 22rem;
+        }
         .div {
-          width: 30rem;
+          width: 20rem;
         }
       }
     }

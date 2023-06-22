@@ -37,11 +37,16 @@ const postsData = theme.value.posts;
 const endData: any = {};
 let theTag = ref("");
 let choseData = ref("");
+console.log(postsData);
+
 for (let item of postsData) {
+  console.log(item);
+  
   const tag = item.frontMatter.tags;
 
+
   if (!tag) {
-    break;
+    continue;
   }
 
   if (typeof tag == "object") {
