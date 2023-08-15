@@ -19,6 +19,9 @@ import songs from "./mycomponents/Funny/songs.vue"
 
 import basictriangle from "./mycomponents/Demo/webgpudemo/basictriangle.vue"
 
+import pixeltool from "./mycomponents/Tool/pixeltool.vue"
+
+
 
 
 
@@ -50,5 +53,8 @@ export default {
 
      // 像素探索
      app.component("pixelDemo",pixelDemo)
+
+    // tool
+    app.component("pixeltool",pixeltool);
   }
 }

@@ -150,8 +150,7 @@
           </a>
         </div>
 
-        <div class="store" v-html="peopleinfo.store">
-        </div>
+        <div class="store" v-html="peopleinfo.store"></div>
       </div>
       <div class="footer">
         <a>
@@ -216,7 +215,6 @@ const peopledata = {
         <p>跳佬也会分享自己的做菜贴和白嫖游戏的帖子，德艺双馨了属于是。</p>
       `,
     },
-    
   ],
 
   fishfrends: [
@@ -254,7 +252,8 @@ const peopledata = {
       store: "",
     },
     {
-      img: "https://file.fishpi.cn/2022/06/blob-fbff7c58.png?imageView2/1/w/210/h/210/interlace/0/q/100",
+      img:
+        "https://file.fishpi.cn/2022/06/blob-fbff7c58.png?imageView2/1/w/210/h/210/interlace/0/q/100",
       name: "十一",
       des: "懒癌晚期，混吃等死~",
       look: "成熟稳重的中龄愤青🤪",
@@ -262,7 +261,8 @@ const peopledata = {
       store: "",
     },
     {
-      img: "https://file.fishpi.cn/2022/06/srchttpimgzcoolcncommunity0116405d84f975a801211d537707c9gifreferhttpimgzcool-0f2d09c9.gif?imageView2/1/w/210/h/210/interlace/0/q/100",
+      img:
+        "https://file.fishpi.cn/2022/06/srchttpimgzcoolcncommunity0116405d84f975a801211d537707c9gifreferhttpimgzcool-0f2d09c9.gif?imageView2/1/w/210/h/210/interlace/0/q/100",
       name: "test12138",
       des: "大丈夫生于天地之间，岂能郁郁久居人下！",
       look: "AAA-瓷砖批发~",
@@ -270,12 +270,27 @@ const peopledata = {
       store: "",
     },
     {
-      img: "https://file.fishpi.cn/2023/02/v247dfbb051740334703a0c5a05fb006dbr-d6b59b50.jpg?imageView2/1/w/210/h/210/interlace/0/q/100",
+      img:
+        "https://file.fishpi.cn/2023/02/v247dfbb051740334703a0c5a05fb006dbr-d6b59b50.jpg?imageView2/1/w/210/h/210/interlace/0/q/100",
       name: "probieMott",
       des: ".net萌新~",
       look: "你好鱼油~",
       link: "https://probieluo.github.io",
       store: "",
+    },
+    {
+      img: " https://s1.ax1x.com/2022/03/13/bqyIpT.jpg",
+      name: "咕咕咕",
+      des: "路漫漫其修远兮，吾将上下而求索。",
+      look:"偶尔冒泡的猫猫头",
+      link: "https://cooooing.github.io/",
+    },
+    {
+      img:"https://pwl.stackoverflow.wiki/2021/10/blob-29bbd528.png?imageView2/1/w/210/h/210/interlace/0/q/100",
+      name:"涛之雨",
+      des:"'懒得打理blog，cnblogs也很丑，也没什么人看，不如直接来吾爱找我'",
+      look:"吾爱大佬",
+      link:"https://taozhiyu.gitee.io/"
     },
   ],
 
@@ -387,9 +402,8 @@ const peopledata = {
       link: "https://fishpi.cn/member/Orange",
       store: "",
     },
-     {
-      img:
-        "https://file.fishpi.cn/2023/04/blob-3cabeac5.png",
+    {
+      img: "https://file.fishpi.cn/2023/04/blob-3cabeac5.png",
       name: "viiSummer",
       des: "为万世开太平~",
       look: "王昭君温酒斩华雄！",
@@ -439,7 +453,7 @@ const peopledata = {
     110vmax 110vmax, 90vmax 90vmax;
   background-position: -80vmax -80vmax, 60vmax -30vmax, 10vmax 10vmax,
     -30vmax -10vmax, 50vmax 50vmax;
-  
+
   animation: 24s movement ease infinite;
 
   .content {
@@ -613,8 +627,8 @@ const peopledata = {
         font-family: "catbite", Arial, "Microsoft YaHei";
         transition: all 0.5s linear;
         cursor: none;
-        padding:0 30px;
-        text-indent:2em;
+        padding: 0 30px;
+        text-indent: 2em;
       }
 
       .name:hover,

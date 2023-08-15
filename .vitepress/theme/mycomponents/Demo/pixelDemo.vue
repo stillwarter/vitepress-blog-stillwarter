@@ -152,8 +152,7 @@ setupclothingpixel();
 setstrapspixel();
 setshoespixel();
 seteyespixel();
-
-
+console.log(beardhairpixel);
 
 onMounted(() => {
   const mypixel = document.getElementById("pixel");
@@ -170,7 +169,7 @@ onMounted(() => {
   // tools.lineTo(100.5, 110);
 
   /*
-   这两条线宽度不一样，前者是2像素，后者是1像素。为什么呢？
+   这两条线宽度不一样，前者x轴是2像素，后者y轴是1像素。为什么呢？
    实际canvas在划线的时候，是以当前坐标为中心轴，分别向上向下延申去画线。问题是电脑屏幕显示最小单位就是1像素，所以就直接画2像素；
    并且为了看起来是1像素，它还调低了颜色，所以前者线条看起来淡一些。
 
@@ -351,8 +350,7 @@ onMounted(() => {
     tools.fillStyle = "#5dbe8a";
 
     if (rendereyesi >= eyespixel.length) {
-      console.log("画龙点睛！");
-      rendereyesi=0
+      rendereyesi = 0;
       renderframerate = 0;
       requestAnimationFrame(closeyes);
     } else if (renderframerate % 15 == 0) {
@@ -370,12 +368,11 @@ onMounted(() => {
       requestAnimationFrame(draweyes);
     }
   }
-
-  function closeyes(){
+  function closeyes() {
     tools.fillStyle = "#fbda41";
     if (rendereyesi >= eyespixel.length) {
       console.log("画龙点睛！");
-      rendereyesi=0
+      rendereyesi = 0;
       renderframerate = 0;
       requestAnimationFrame(draweyes);
       return;
@@ -408,7 +405,8 @@ onMounted(() => {
     border-radius: 0px;
     margin-top: 20px;
     margin-left: 20px;
-    position: relative;
+    position:relative;
+    z-index:1000;
   }
 
   .coordinatex {

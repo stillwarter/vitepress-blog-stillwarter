@@ -26,7 +26,7 @@ import DefaultTheme from "vitepress/theme";
 import bsz from "busuanzi.pure.js";
 import { onMounted, ref } from "vue";
 const { Layout } = DefaultTheme;
-console.log(bsz);
+// console.log(bsz);
 
 bsz
 
@@ -38,6 +38,7 @@ bsz
   width: 100%;
   text-align: center;
   cursor: help;
+  z-index:-1;
   font: 12px/150% Arial, Verdana, SimSun;
   a {
     color: #ff7007;
