@@ -10,7 +10,7 @@ async function config() {
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
       nav: [
-        { text: "🐈stillwarter", link: "/" },
+        { text: "📈计划", link: "/plan" },
         { text: "🗃️标签", link: "/tag" },
         { text: "📖文章", link: "/archives" },
         {text:"📔友人帐",link:"/teancherandfrends"}

@@ -153,7 +153,7 @@
         <div class="store" v-html="peopleinfo.store"></div>
       </div>
       <div class="footer">
-        <a>
+        <a target="_blank" :href="peopleinfo.fishlink">
           <img src="https://fishpi.cn/images/favicon.png" />
         </a>
 
@@ -168,6 +168,7 @@
 <script lang="ts" setup>
 import { computed, ref } from "vue";
 import { useData, withBase } from "vitepress";
+import { peopledata } from "./data/teacherinfo.js";
 
 const content = ref(null);
 const rightpanel = ref(null);
@@ -189,229 +190,6 @@ function getnode(e) {
     rightflag = 0;
   }
 }
-
-const peopledata = {
-  teacherdata: [
-    {
-      img: "https://tmx.fishpi.cn/image/head.jpg",
-      name: "鼠鼠在碎觉",
-      des: "鼠鼠在碎觉，请勿打扰~",
-      look: "我的摸鱼导师~",
-      link: "https://www.sszsj.cc/",
-      store: `
-        <p>大三的时候在GitHub上面搜索摸鱼，看到了摸瞎的摸鱼插件？然后就进入了链滴，奇怪的开始了code生涯，在此之前并没有认真的code，大多情况下只是为了应付学业。</p>
-        
-        <p>这位确实能称为我的导师了，虽然他也并没有教导我什么，虽然我不知道他的模样姓名，但故事是从摸鱼开始...</p>
-      `,
-    },
-    {
-      img: "https://my.hancel.org/media/logo.jpg",
-      name: "hancel",
-      des: "人生而自由，却无往不在枷锁之中。",
-      look: "超强叮当猫~",
-      link: "https://my.hancel.org/",
-      store: `
-        <p>为什么叫叮当猫，因为鱼油很多的问题他都能答上来，hancel（跳佬）做了很多插件，比如maze，鱼派的拓展等等，是混在鱼排内很强力的开发者！</p>
-        <p>跳佬也会分享自己的做菜贴和白嫖游戏的帖子，德艺双馨了属于是。</p>
-      `,
-    },
-  ],
-
-  fishfrends: [
-    {
-      img:
-        "https://file.fishpi.cn/2022/11/blob-e958dbd9.png?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name: "Gakkiyomi",
-      des: "为往圣继绝学~",
-      look: "某知名大厂java主程~",
-      link: " http://gakkiyomi.me",
-      store: "",
-    },
-    {
-      img: "https://avatars1.githubusercontent.com/u/6754458?v=4",
-      name: "adlered",
-      des: "贼拉正经的技术博客~",
-      look: "年少有为的公司老总~",
-      link: "https://www.stackoverflow.wiki",
-      store: "",
-    },
-    {
-      img: "https://lemon-cxh.github.io/images/avatar.jpg",
-      name: "三月柳絮四月雨",
-      des: "我年华虚度，空有一身疲惫😭",
-      look: "感情上的迷途人..",
-      link: "https://lemon-cxh.github.io",
-      store: "",
-    },
-    {
-      img: "https://www.hjljy.cn/favicon.png",
-      name: "海加尔金鹰",
-      des: "如野草般一岁一枯荣~",
-      look: "熟悉又陌生的链友~",
-      link: "https://www.hjljy.cn",
-      store: "",
-    },
-    {
-      img:
-        "https://file.fishpi.cn/2022/06/blob-fbff7c58.png?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name: "十一",
-      des: "懒癌晚期，混吃等死~",
-      look: "成熟稳重的中龄愤青🤪",
-      link: "https://www.elevenblog.cn",
-      store: "",
-    },
-    {
-      img:
-        "https://file.fishpi.cn/2022/06/srchttpimgzcoolcncommunity0116405d84f975a801211d537707c9gifreferhttpimgzcool-0f2d09c9.gif?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name: "test12138",
-      des: "大丈夫生于天地之间，岂能郁郁久居人下！",
-      look: "AAA-瓷砖批发~",
-      link: "https://114514gay.cf",
-      store: "",
-    },
-    {
-      img:
-        "https://file.fishpi.cn/2023/02/v247dfbb051740334703a0c5a05fb006dbr-d6b59b50.jpg?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name: "probieMott",
-      des: ".net萌新~",
-      look: "你好鱼油~",
-      link: "https://probieluo.github.io",
-      store: "",
-    },
-    {
-      img: " https://s1.ax1x.com/2022/03/13/bqyIpT.jpg",
-      name: "咕咕咕",
-      des: "路漫漫其修远兮，吾将上下而求索。",
-      look:"偶尔冒泡的猫猫头",
-      link: "https://cooooing.github.io/",
-    },
-    {
-      img:"https://pwl.stackoverflow.wiki/2021/10/blob-29bbd528.png?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name:"涛之雨",
-      des:"'懒得打理blog，cnblogs也很丑，也没什么人看，不如直接来吾爱找我'",
-      look:"吾爱大佬",
-      link:"https://taozhiyu.gitee.io/"
-    },
-  ],
-
-  bigstart: [
-    {
-      img: "https://avatars.githubusercontent.com/u/905434?v=4",
-      name: "阮一峰",
-      des: "《未来世界的幸存者》",
-      look: "20年的时间散落在这里..",
-      link: " https://ruanyifeng.com/",
-      store: "",
-    },
-    {
-      img: "https://b3logfile.com/avatar/1353745196354_1611386411315.jpeg",
-      name: "D",
-      des: "但行好事莫问前程~",
-      look: "思源笔记开发者，报废程序员D~",
-      link: "https://88250.b3log.org/",
-      store: "",
-    },
-    {
-      img: " https://avatars.githubusercontent.com/u/11247099?v=4",
-      name: "Anthony Fu",
-      des: "vue,vite,nuxt核心团队成员~",
-      look: "开源探店人~",
-      link: "https://antfu.me/",
-      store: "",
-    },
-    {
-      img: "https://avatars.githubusercontent.com/u/1240026?v=4",
-      name: "Matt Frisbie",
-      des: "红宝书作者~",
-      look: "新手村老爷爷~",
-      link: "https://www.mattfriz.com/",
-      store: "",
-    },
-    {
-      img: "https://avatars.githubusercontent.com/u/13848593?v=4",
-      name: "向军大叔",
-      des: "后盾人社区开发者~",
-      look: "最初学习web开发的老师~",
-      link: "https://www.houdunren.com/",
-      store: "",
-    },
-  ],
-
-  bestfrends: [
-    {
-      img: "/img/CC.jpg",
-      name: "CC",
-      des: "河流捞的一，津门大鲛弹。",
-      look: "嵌入式攻城狮~",
-      link: "",
-      store: "若是蚊子很多，晚上睡不着觉，阁下该如何应对？",
-    },
-  ],
-
-  website: [
-    {
-      img: "https://fishpi.cn/images/favicon.png",
-      name: "摸鱼派",
-      des: "摸鱼派是一个以程序员、设计师、极客为核心的社区，欢迎你的加入。",
-      look: "鱼油卧虎藏龙!",
-      link: "https://fishpi.cn/",
-      store: `
-        <p>D哥后续全心全意的进行思源笔记的开发，链滴社区逐渐变为了思源笔记的bug提交社区？一批链滴的摸鱼老油条们重启炉灶，新建了一个社区，这就是摸鱼派了。</P>
-        <p>也是在这里，老油条们发光发热，将这里打造成了真正的摸鱼聊天室，我也是这里早期的非官方接待机器人；而我在这里的故事也在继续...</p>
-      `,
-    },
-    {
-      img: "https://ld246.com/images/favicon.png",
-      name: "链滴",
-      des:
-        "这里是一个记录生活的地方，目前已经有超过 50000 的伙伴加入。我们正在构建一个小众社区。大家在这里相互信任，以平等 • 自由 • 奔放的价值观进行分享交流。最终，希望大家能够找到与自己志同道合的伙伴，共同成长。",
-      look: "摸鱼开始的地方~",
-      link: "https://ld246.com/",
-      store: `
-      <p>链滴是我看鼠鼠在碎觉（摸瞎）的插件里发现的，在哪里知道了思源笔记和D哥，正好当时在准备考研，于是就用这个笔记记录知识要点（虽然最后没考好）...</P>
-      <p>在社区内遇到的人，确实对我工作学习的选择上产生了影响。我永远记得，接触链滴后，我发现我需要的是学习本身，而不是它带给我的分数。</p>
-      `,
-    },
-  ],
-
-  noblogpeople: [
-    {
-      img:
-        "https://pwl.stackoverflow.wiki/2021/09/bulabula1-98fde124.png?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name: "bulabula",
-      des: "这个人很懒，什么都没留下。",
-      look: "牛b哄哄的脚本小子。",
-      link: "https://fishpi.cn/member/bulabula",
-      store: "",
-    },
-    {
-      img:
-        "https://pwl.stackoverflow.wiki/2021/12/blob-28eb4b9f.png?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name: "bongbongbakudan",
-      des: "呼呼呼~",
-      look: "贴友友~",
-      link: "https://fishpi.cn/member/bongbongbakudan",
-      store: "",
-    },
-    {
-      img:
-        "https://file.fishpi.cn/2023/02/blob-b65aba57.png?imageView2/1/w/210/h/210/interlace/0/q/100",
-      name: "Orange",
-      des: "小羊要睡觉了~",
-      look: "咩~",
-      link: "https://fishpi.cn/member/Orange",
-      store: "",
-    },
-    {
-      img: "https://file.fishpi.cn/2023/04/blob-3cabeac5.png",
-      name: "viiSummer",
-      des: "为万世开太平~",
-      look: "王昭君温酒斩华雄！",
-      link: "https://fishpi.cn/member/viiSummer",
-      store: "",
-    },
-  ],
-};
 </script>
 
 <style lang="less" scoped>
@@ -423,6 +201,7 @@ const peopledata = {
   flex-direction: row;
   justify-content: center;
   background-color: #e493d0;
+  background-repeat: no-repeat;
   transition: all 1s ease;
   background-image: radial-gradient(
       closest-side,
