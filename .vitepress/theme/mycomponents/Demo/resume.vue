@@ -7,6 +7,7 @@
 
 <script setup>
 import { computed, onMounted, ref } from "vue";
+
 const renderlist = [
   {
     content: "// 这是一个简单的简历动画",
@@ -99,7 +100,7 @@ const renderlist = [
     style: false,
   },
   {
-    content: "// 准备做头部栏",
+    content: "// 我们先准备简历的整体布局",
   },
 ];
 
@@ -197,9 +198,12 @@ onMounted(async () => {
 
   let datai = 0;
   let delay = 1;
-  try {
-    // 初始化
-    for (const item of renderlist) {
+
+  /**
+   * 默认传入的list是renderlist样子的
+   */
+  async function stepStyleList(stylelist) {
+    for (const item of stylelist) {
       if (item.style) {
         await step(item.content, codedom);
         const stylelist = Object.entries(item.style);
@@ -217,6 +221,28 @@ onMounted(async () => {
         await step(item.content, codedom);
       }
     }
+  }
+
+  try {
+    // 初始化
+    await stepStyleList(renderlist);
+
+    // 调整头部栏布局
+    await step("// 调整头部栏布局", codedom);
+
+    let stepcontent = [
+      {
+        content: "/* 先给全局加一个效果\n(css省略大括号) */",
+        style: {
+          "*": {
+            transition: "all .3s linear;",
+          },
+        },
+      },
+    ];
+
+    // 简历布局
+    
 
     // 正式写简历
     await stepDetail("你好，我是stillwarter", textdom, "h6");

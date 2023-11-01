@@ -41,17 +41,15 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {  onMounted } from "vue";
+import { onMounted } from "vue";
 import axios from "axios";
-
 
 let audioflag = 0;
 let audiostatu = 0;
-let audiotimimg=0
+let audiotimimg = 0;
 
-let title 
-let audio 
-
+let title;
+let audio;
 
 let word = [];
 let lyricarr = [];
@@ -121,7 +119,7 @@ function renderlyric() {
           delay++;
           requestAnimationFrame(renderfn);
         }
-      } 
+      }
       // 停顿后,由于flag状态改变,对歌词进行退步更新
       else if (flag && delay % 4 == 0) {
         word.pop();
@@ -129,7 +127,7 @@ function renderlyric() {
         nextflag = 1;
         delay++;
         requestAnimationFrame(renderfn);
-      } 
+      }
       // 歌词退完后,渲染下一条歌词
       else if (word.length == 0 && nextflag) {
         nextflag = 0;
@@ -150,46 +148,44 @@ function renderlyric() {
   render = requestAnimationFrame(renderfn);
 }
 
-
 // https://api.injahow.cn/meting/?type=lrc&id=416892104
 function renderstart() {
   /* 动画渲染入口 */
-  axios.get("https://api.injahow.cn/meting/?type=lrc&id=1411793721").then((res) => {
-    // console.log(res);
-    
-    // lyricarr = res.data.lrc.lyric.split("\n");
-    lyricarr = res.data.split("\n");
-    
-    // lyricarr = res.data.tlyric.lyric.split("\n");
-    splicelyric(lyricarr[lyriarrindex], lyricarr[lyriarrindex + 1]);
-    getrenderlength();
-    
-    renderlyric();
-  });
+  axios
+    .get("https://api.injahow.cn/meting/?type=lrc&id=1411793721")
+    .then((res) => {
+      // console.log(res);
+
+      // lyricarr = res.data.lrc.lyric.split("\n");
+      lyricarr = res.data.split("\n");
+
+      // lyricarr = res.data.tlyric.lyric.split("\n");
+      splicelyric(lyricarr[lyriarrindex], lyricarr[lyriarrindex + 1]);
+      getrenderlength();
+
+      renderlyric();
+    });
 }
 
 function onPause() {
   console.log("暂停");
   audioflag = 1;
-  audiotimimg=timer-Math.round(audio[0].currentTime*1000)
+  audiotimimg = timer - Math.round(audio[0].currentTime * 1000);
 }
 
 function onPlay() {
- title = document.getElementsByClassName("wordtitle");
- audio = document.getElementsByTagName("audio")
+  title = document.getElementsByClassName("wordtitle");
+  audio = document.getElementsByTagName("audio");
   if (audioflag == 1) {
     audioflag = 0;
-  
+
     setTimeout(() => {
       requestAnimationFrame(renderfn);
-    }, audiotimimg+200);
+    }, audiotimimg + 200);
   } else {
     renderstart();
   }
 }
-
-
-
 
 </script>
 
