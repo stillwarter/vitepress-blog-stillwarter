@@ -29,7 +29,7 @@ const renderlist = [
       },
       "#style-text": {
         background: "#333;",
-        width: "48%;",
+        width: "430px;",
         "min-height": "90vh;",
         padding: "10px;",
         border: "1px solid red;",
@@ -83,15 +83,16 @@ const renderlist = [
         "justify-content": "space-between;",
       },
       "#work-text": {
-        width: "48%;",
+        width: "720px;",
         height: "90vh;",
         "border-radius": "4px;",
         background: "#fff;",
         opacity: "0.4;",
         "box-shadow": "inset 0 0 6px rgba(255, 255, 255);",
         position: "absolute;",
-        right: "0px;",
+        left: "450px;",
         overflow: "auto;",
+        padding: "10px;",
       },
     },
   },
@@ -101,6 +102,13 @@ const renderlist = [
   },
   {
     content: "// 我们先准备简历的整体布局",
+    style: {
+      "#work-text div": {
+        padding: "10px;",
+        background: "#eee;",
+        "border-radius": "4px;",
+      },
+    },
   },
 ];
 
@@ -156,17 +164,20 @@ onMounted(async () => {
    * domType：需要添加dom的类型
    * wordStyle:需要添加dom的style样式
    */
-  function stepDetail(word, parenDdom, domType, wordStyle = "") {
+  function stepDetail(word, parentDom, domType, className = "") {
     return new Promise((resolve, reject) => {
       const dom = document.createElement(domType);
-      dom.className = wordStyle;
+      dom.className = className;
       let i = 0;
       const len = word.length;
       intervalId = setInterval(() => {
         if (i < len) {
           dom.innerHTML += word[i++];
-          parenDdom.appendChild(dom);
+          console.log(dom);
+          parentDom.appendChild(dom);
         } else {
+          // 没有word传入，也将dom添加到父节点
+          parentDom.appendChild(dom);
           clearInterval(intervalId);
           resolve("Step result");
         }
@@ -228,28 +239,39 @@ onMounted(async () => {
     await stepStyleList(renderlist);
 
     // 调整头部栏布局
-    await step("// 调整头部栏布局", codedom);
+    // await step("// 调整头部栏布局", codedom);
 
-    let stepcontent = [
+    // 简历布局
+    /**
+     * 使用stepDetail 创建子元素
+     */
+    await stepDetail("", textdom, "div", "headbox");
+    const headboxdom = document.querySelector(".headbox");
+ await stepDetail("", headboxdom, "div", "headboxright");
+    /**
+     * 头部的照片和简介
+     */
+    const headStylelist = [
       {
-        content: "/* 先给全局加一个效果\n(css省略大括号) */",
+        content: "// 简历头部",
         style: {
-          "*": {
-            transition: "all .3s linear;",
+          ".headbox": {
+            display: "flex;",
           },
         },
       },
     ];
+    stepStyleList(headStylelist);
 
-    // 简历布局
-    
+    await stepDetail("", textdom, "div", "centerbox");
+    await stepDetail("", textdom, "div", "footerbox");
 
     // 正式写简历
-    await stepDetail("你好，我是stillwarter", textdom, "h6");
+    // await stepDetail("你好，我是stillwarter", textdom, "h6");
 
-    const url =
-      "https://file.fishpi.cn/2022/07/MOSHED2022621164630-1b1ec532.gif?imageView2/1/w/210/h/210/interlace/0/q/100";
-    await stepDetailImg(textdom, url);
+    // const url =
+    //   "https://file.fishpi.cn/2022/07/MOSHED2022621164630-1b1ec532.gif?imageView2/1/w/210/h/210/interlace/0/q/100";
+    // await stepDetailImg(textdom, url);
   } catch (error) {
     console.log(error);
   }
